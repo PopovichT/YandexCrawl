@@ -1,23 +1,19 @@
 package com.popovich.scrap.config;
 
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+import io.github.bonigarcia.wdm.WebDriverManager;
+import lombok.Getter;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import java.util.concurrent.TimeUnit;
 
-import javax.annotation.PostConstruct;
-
-@Configuration
+@Getter
 public class SeleniumConfig {
 
-    @PostConstruct
-    void postConstruct()
-    {
-        System.setProperty("webdriver.chrome.driver", "/home/taras/Desktop/WebDrivers/chromedriver");
-    }
+    private WebDriver driver;
 
-    @Bean
-    public ChromeDriver driver()
-    {
-        return new ChromeDriver();
+    public SeleniumConfig() {
+        WebDriverManager.firefoxdriver().setup();
+        driver = new FirefoxDriver();
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     }
 }
