@@ -1,7 +1,6 @@
 package com.popovich.scrap.shell;
 
 import com.popovich.scrap.client.SeleniumYandexClient;
-import org.openqa.selenium.WebElement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.shell.standard.ShellComponent;
 import org.springframework.shell.standard.ShellMethod;
@@ -19,7 +18,7 @@ public class ShellCommands {
     }
 
     @ShellMethod("Scrap links by word")
-    public List<String> scrape(String input) throws InterruptedException {
-        return seleniumYandexClient.scrape(input);
+    public String scrape(String input, int page, int number) throws InterruptedException {
+        return seleniumYandexClient.scrapCertainLink(input, page, number);
     }
 }

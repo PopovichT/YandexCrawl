@@ -12,7 +12,7 @@ public class SeleniumYandexClientTest {
 
     @Test
     void testCanClientParseLinks() throws InterruptedException {
-        assertNotNull(seleniumYandexClient.scrape("car"));
+        assertNotNull(seleniumYandexClient.scrapCertainLink("car", 2, 3));
     }
 }
 
