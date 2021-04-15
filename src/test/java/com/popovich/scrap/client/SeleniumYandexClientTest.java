@@ -11,7 +11,7 @@ public class SeleniumYandexClientTest {
     private SeleniumYandexClient seleniumYandexClient = new SeleniumYandexClient();
 
     @Test
-    void testCanClientParseLinks() {
+    void testCanClientParseLinks() throws InterruptedException {
         assertNotNull(seleniumYandexClient.scrape("car"));
     }
 }
